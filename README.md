@@ -39,3 +39,9 @@ az cosmosdb create --name cosmosdb-playeconomy --resource-group $rg-name --kind 
 ```powershell
 az servicebus namespace create --name sb-playeconomy --resource-group $rg-name --sku Standard 
 ```
+
+## Creating the Container Registry
+
+```powershell
+az acr create --name acr-playeconomy --resource-group $rg-name --sku Basic
+```
