@@ -24,18 +24,24 @@ dotnet nuget remove source github
 ## Creating the Azure resource group
 
 ```powershell
-$rg-name="rg-womd-robbie-001"
-az group create --name $rg-name --location eastus
+$rgname="rg-womd-robbie-001"
+az group create --name $rgname --location eastus
 ```
 
 ## Creating the Cosmos DB account
 
 ```powershell
-az cosmosdb create --name cosmosdb-playeconomy --resource-group $rg-name --kind MongoDB --enable-free-tier
+az cosmosdb create --name cosmosdb-playeconomy --resource-group $rgname --kind MongoDB --enable-free-tier
 ```
 
 ## Creating the Service Bus namespace
 
 ```powershell
-az servicebus namespace create --name sb-playeconomy --resource-group $rg-name --sku Standard 
+az servicebus namespace create --name sb-playeconomy --resource-group $rgname --sku Standard 
+```
+
+## Creating the Container Registry
+
+```powershell
+az acr create --name acrplayeconomydev001 --resource-group $rgname --sku Basic
 ```
