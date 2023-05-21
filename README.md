@@ -24,7 +24,7 @@ dotnet nuget remove source github
 ## Creating the Azure resource group
 
 ```powershell
-$rgname="rg-womd-robbie-001"
+$rgname="rg-playeconomy-dev-001"
 az group create --name $rgname --location eastus
 ```
 
