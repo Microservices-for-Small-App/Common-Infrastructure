@@ -31,17 +31,27 @@ az group create --name $rgname --location eastus
 ## Creating the Cosmos DB account
 
 ```powershell
-az cosmosdb create --name cosmosdb-playeconomy --resource-group $rgname --kind MongoDB --enable-free-tier
+$cosmosdbname="cosmosdb-playeconomy"
+az cosmosdb create --name $cosmosdbname --resource-group $rgname --kind MongoDB --enable-free-tier
 ```
 
 ## Creating the Service Bus namespace
 
 ```powershell
-az servicebus namespace create --name sb-playeconomy --resource-group $rgname --sku Standard 
+$sbname="sb-playeconomy"
+az servicebus namespace create --name $sbname --resource-group $rgname --sku Standard 
 ```
 
 ## Creating the Container Registry
 
 ```powershell
-az acr create --name acrplayeconomydev001 --resource-group $rgname --sku Basic
+$acrname="acrplayeconomydev001"
+az acr create --name $acrname --resource-group $rgname --sku Basic
+```
+
+## Creating the Azure Key Vault
+
+```powershell
+$kvname="kv-playeconomy-dev-001"
+az keyvault create -n $kvname -g $rgname
 ```
