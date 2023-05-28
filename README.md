@@ -74,6 +74,8 @@ helm list -n $namespace
 
 kubectl rollout status deployment/emissary-ingress -n $namespace -w
 
+kubectl get svc emissary-ingress -n $namespace
+
 On GKE/Azure:
   export SERVICE_IP=$(kubectl get svc --namespace emissary emissary-ingress -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
 
