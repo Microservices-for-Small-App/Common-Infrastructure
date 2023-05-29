@@ -64,7 +64,7 @@ helm repo list
 helm repo update
 
 kubectl apply -f https://app.getambassador.io/yaml/emissary/3.3.0/emissary-crds.yaml
-kubectl wait --timeout=90s --for=condition=available deployment emissary-apiext -n emissary-system 
+kubectl wait --timeout=90s --for=condition=available deployment emissary-apiext -n emissary-system
 
 $appname="apig-playeconomy-dev-001"
 $namespace="emissary"
