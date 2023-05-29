@@ -84,3 +84,10 @@ On GKE/Azure:
 
   echo http://$SERVICE_IP:
 ```
+
+## Configuring Emissary-ingress routing
+
+```powershell
+kubectl apply -f .\emissary-ingress\listener.yaml -n $namespace
+kubectl apply -f .\emissary-ingress\mappings.yaml -n $namespace
+```
