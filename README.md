@@ -68,7 +68,7 @@ kubectl wait --timeout=90s --for=condition=available deployment emissary-apiext 
 
 $appname="apig-playeconomy-dev-001"
 $namespace="emissary"
-helm install emissary-ingress datawire/emissary-ingress --set service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"=$appname -n $namespace --create-namespace 
+helm install emissary-ingress datawire/emissary-ingress --set service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"=$appname -n $namespace --create-namespace
 
 helm list -n $namespace
 
