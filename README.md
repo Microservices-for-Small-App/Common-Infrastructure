@@ -64,11 +64,11 @@ helm repo list
 helm repo update
 
 kubectl apply -f https://app.getambassador.io/yaml/emissary/3.3.0/emissary-crds.yaml
-kubectl wait --timeout=90s --for=condition=available deployment emissary-apiext -n emissary-system 
+kubectl wait --timeout=90s --for=condition=available deployment emissary-apiext -n emissary-system
 
 $appname="apig-playeconomy-dev-001"
 $namespace="emissary"
-helm install emissary-ingress datawire/emissary-ingress --set service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"=$appname -n $namespace --create-namespace 
+helm install emissary-ingress datawire/emissary-ingress --set service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"=$appname -n $namespace --create-namespace
 
 helm list -n $namespace
 
@@ -83,4 +83,11 @@ On GKE/Azure:
   export SERVICE_IP=$(kubectl get svc --namespace emissary emissary-ingress -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
 
   echo http://$SERVICE_IP:
+```
+
+## Configuring Emissary-ingress routing
+
+```powershell
+kubectl apply -f .\emissary-ingress\listener.yaml -n $namespace
+kubectl apply -f .\emissary-ingress\mappings.yaml -n $namespace
 ```
